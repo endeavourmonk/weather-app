@@ -1,0 +1,85 @@
+/* Left Bar Container */
+.container {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 30%; */
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 30%;
+  }
+}
+/* Info Card */
+.infoCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoImg {
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+}
+
+.infoImg img {
+  height: 100%;
+  width: 100%;
+}
+
+.infoTemp {
+  width: 80%;
+  margin-top: 30px;
+  font-size: 64px;
+}
+
+.weekdayTime {
+  width: 80%;
+  margin: 18px 2px 30px;
+  font-size: 24px;
+}
+
+.currentTime {
+  color: grey;
+}
+
+.borderLine {
+  width: 80%;
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.infoBox {
+  width: 80%;
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+/* City Card  */
+.cityCard {
+  height: 120px;
+  width: 80%;
+  margin: 12px;
+  padding: 8px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cityCard img {
+  filter: blur(1px);
+  opacity: 0.8;
+}
+
+.cityName {
+  position: absolute;
+  font-weight: 600;
+  color: white;
+  padding: 10px;
+  font-size: 24px;
+}

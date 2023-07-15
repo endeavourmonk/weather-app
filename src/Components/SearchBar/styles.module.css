@@ -1,0 +1,28 @@
+.container {
+  width: 80%;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+}
+
+.searchBar {
+  margin: 4px;
+  padding: 8px;
+  font-size: 20px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
