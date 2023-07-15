@@ -10,15 +10,16 @@ const getLatandLon = async (place) => {
   const data = await fetch(
     `${URL}/geo/1.0/direct?q=${place}&limit=5&appid=${API_KEY}`
   );
-  const lat = await data.json()[0].lat;
-  const lon = await data.json()[0].lon;
+  const jsonData = await data.json();
+  const lat = jsonData[0].lat;
+  const lon = jsonData[0].lon;
   return [lat, lon];
 };
 
 // fetch the Air Quality data
 const getAirQuality = async (lat, lon) => {
   const data = fetch(
-    `${URL}/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API key}`
+    `${URL}/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
   );
   return (await data).json();
 };
@@ -39,9 +40,18 @@ const getCurrentWeather = async (place) => {
   return await data.json();
 };
 
+// fetch 5 day forecast by place name
+const getForecast = async (place) => {
+  const data = await fetch(
+    `${URL}/data/2.5/forecast?q=${place}&appid=${API_KEY}`
+  );
+  return await data.json();
+};
+
 const Home = () => {
   const [currWeather, setCurrWeather] = useState(null);
   const [airQuality, setAirQuality] = useState(null);
+  const [forecast, setForecast] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // displaying the weather report based on the current location
@@ -52,7 +62,9 @@ const Home = () => {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
           const res = await getCurrentWeatherByLatLon(latitude, longitude);
+          const air_pollution = await getAirQuality(latitude, longitude);
           setCurrWeather(res);
+          setAirQuality(air_pollution);
           setLoading(false);
         },
         async (error) => {
@@ -71,7 +83,13 @@ const Home = () => {
 
   const fetchWeather = async (place) => {
     const res = await getCurrentWeather(place);
+    const [lat, lon] = await getLatandLon(place);
+    const air_pollution = await getAirQuality(lat, lon);
+    const forecast_data = await getForecast(place);
+    console.log(forecast_data);
+    setForecast(forecast_data);
     setCurrWeather(res);
+    setAirQuality(air_pollution);
   };
 
   if (loading) {
@@ -83,7 +101,11 @@ const Home = () => {
       <LeftBar currentWeather={currWeather}>
         <SearchBar fetchWeather={fetchWeather} />
       </LeftBar>
-      <RightBar currentWeather={currWeather} />
+      <RightBar
+        currentWeather={currWeather}
+        airQuality={airQuality}
+        forecast={forecast}
+      />
     </div>
   );
 };

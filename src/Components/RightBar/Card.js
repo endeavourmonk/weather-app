@@ -1,9 +1,9 @@
 import styles from "./styles.module.css";
 
-const Card = ({ title, data, className, children }) => {
+const Card = ({ title, className, children }) => {
   return (
     <div className={styles[className]}>
-      <h3 className={styles.cardTitle}>{title}</h3>
+      <div className={styles.cardTitle}>{title}</div>
       {children}
     </div>
   );

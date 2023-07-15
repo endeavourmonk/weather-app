@@ -41,7 +41,7 @@ const InfoCard = ({ currentWeather }) => {
 
       <div className={styles.infoBox}>
         <div>{currentWeather.weather[0].main}</div>
-        <div>Rain - 30%</div>
+        <div>{currentWeather.weather[0].description}</div>
       </div>
     </div>
   );
