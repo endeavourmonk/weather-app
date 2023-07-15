@@ -25,21 +25,22 @@
 
 /*Today Card */
 .todayCard {
-  height: 150px;
-  width: 150px;
-  margin: 10px;
+  height: 120px;
+  width: 90%;
+  margin: 6px;
   background-color: #fff;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 22px;
   padding: 2px;
 }
 
 @media (min-width: 768px) {
   .todayCard {
+    height: 150px;
     width: 200px;
     font-size: 22px;
   }
