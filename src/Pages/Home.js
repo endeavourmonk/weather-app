@@ -7,8 +7,6 @@ import { useState, useEffect } from "react";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const URL = process.env.REACT_APP_URL;
-console.log(URL);
-console.log(API_KEY);
 
 // get latitude and longitude of a place
 const getLatandLon = async (place) => {
