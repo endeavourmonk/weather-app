@@ -3,9 +3,11 @@ import LeftBar from "../Components/LeftBar/LeftBar";
 import RightBar from "../Components/RightBar/RightBar";
 import SearchBar from "../Components/SearchBar/SearchBar";
 import { useState, useEffect } from "react";
+// require("dotenv").config();
 
-const URL = process.env.URL;
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
+const URL = process.env.REACT_APP_URL;
+console.log(URL);
 
 // get latitude and longitude of a place
 const getLatandLon = async (place) => {
