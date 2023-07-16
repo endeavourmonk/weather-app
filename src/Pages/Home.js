@@ -3,7 +3,9 @@ import LeftBar from "../Components/LeftBar/LeftBar";
 import RightBar from "../Components/RightBar/RightBar";
 import SearchBar from "../Components/SearchBar/SearchBar";
 import { useState, useEffect } from "react";
-import { URL, API_KEY } from "../Constants";
+
+const URL = process.env.URL;
+const API_KEY = process.env.API_KEY;
 
 // get latitude and longitude of a place
 const getLatandLon = async (place) => {
