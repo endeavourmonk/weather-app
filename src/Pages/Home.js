@@ -66,15 +66,14 @@ const Home = () => {
           const longitude = position.coords.longitude;
           const res = await getCurrentWeatherByLatLon(latitude, longitude);
           const air_pollution = await getAirQuality(latitude, longitude);
+          // const forecast = await getForecast()
           setCurrWeather(res);
           setAirQuality(air_pollution);
           setLoading(false);
         },
         async (error) => {
           console.error("Error getting geolocation:", error);
-          // if not got location then displaying London's weather
-          const res = await getCurrentWeather("London");
-          setCurrWeather(res);
+          await fetchWeather("London");
           setLoading(false);
         }
       );
@@ -89,7 +88,7 @@ const Home = () => {
     const [lat, lon] = await getLatandLon(place);
     const air_pollution = await getAirQuality(lat, lon);
     const forecast_data = await getForecast(place);
-    console.log(forecast_data);
+    // console.log(forecast_data);
     setForecast(forecast_data);
     setCurrWeather(res);
     setAirQuality(air_pollution);
