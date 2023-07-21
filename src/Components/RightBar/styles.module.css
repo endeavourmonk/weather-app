@@ -2,7 +2,7 @@
   background-color: #f4f2f2;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: center;
 }
 
@@ -57,16 +57,23 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .forecastCard {
   height: 180px;
-  width: 150px;
+  width: calc((100% - 100px) / 3);
   margin: 10px;
   background-color: #fff;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecastImg {
+  display: flex;
   justify-content: center;
   align-items: center;
 }

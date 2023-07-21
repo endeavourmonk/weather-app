@@ -12,7 +12,7 @@ const dayNames = [
 ];
 const dayNumber = new Date().getDay();
 
-const InfoCard = ({ currentWeather }) => {
+const InfoCard = ({ weather }) => {
   const [currTime, setCurrTime] = useState(
     new Date(Date.now()).toLocaleTimeString()
   );
@@ -22,16 +22,18 @@ const InfoCard = ({ currentWeather }) => {
     1000
   );
 
+  const {
+    temp_c,
+    condition: { text, icon },
+    precip_mm,
+  } = weather.current;
+
   return (
     <div className={styles.infoCard}>
       <div className={styles.infoImg}>
-        <img
-          className="styles.infoImg"
-          src={`https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`}
-          alt="error loading"
-        />
+        <img className="styles.infoImg" src={icon} alt="error loading" />
       </div>
-      <div className={styles.infoTemp}>{`${currentWeather.main.temp}  °C`}</div>
+      <div className={styles.infoTemp}>{`${temp_c}  °C`}</div>
       <div className={styles.weekdayTime}>
         <span className={styles.weekday}>{`${dayNames[dayNumber]}, `}</span>
         <span className={styles.currentTime}>{currTime}</span>
@@ -40,8 +42,8 @@ const InfoCard = ({ currentWeather }) => {
       <div className={styles.borderLine}></div>
 
       <div className={styles.infoBox}>
-        <div>{currentWeather.weather[0].main}</div>
-        <div>{currentWeather.weather[0].description}</div>
+        <div>{text}</div>
+        <div>{`Precepitation(mm): ${precip_mm}`}</div>
       </div>
     </div>
   );
