@@ -14,6 +14,8 @@ import {
   faLungs,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { AQI } from "../../constants/AQI-Index";
+
 const getDayName = (dateEpoch) => {
   const dayName = new Date(dateEpoch * 1000).toLocaleString("en-US", {
     weekday: "long",
@@ -22,14 +24,6 @@ const getDayName = (dateEpoch) => {
 };
 
 const RightBar = ({ weather }) => {
-  const AQI = {
-    1: { label: "Good", color: "#00D100" },
-    2: { label: "Fair", color: "#D1D100" },
-    3: { label: "Moderate", color: "#FFA500" },
-    4: { label: "Poor", color: "#FF5C5C" },
-    5: { label: "Very Poor", color: "#FF0000" },
-  };
-
   const index = weather.current.air_quality["us-epa-index"];
 
   const {
@@ -172,8 +166,9 @@ const RightBar = ({ weather }) => {
             <span
               style={{
                 color: AQI[index].color,
-                fontSize: "28px",
+                fontSize: "26px",
                 fontWeight: "900",
+                textAlign: "center",
               }}
               className={styles.cardData}
             >

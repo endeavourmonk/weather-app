@@ -2,7 +2,6 @@
   background-color: #f4f2f2;
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   justify-content: center;
 }
 
@@ -40,8 +39,9 @@
 
 @media (min-width: 768px) {
   .todayCard {
+    padding: 4px;
     height: 150px;
-    width: 200px;
+    width: 220px;
     font-size: 22px;
   }
 }
