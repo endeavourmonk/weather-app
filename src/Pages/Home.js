@@ -44,12 +44,10 @@ const Home = () => {
         async (position) => {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
-          console.log("lat and long", latitude, longitude);
           const place = await getPlaceByLatitudeAndLongitude(
             latitude,
             longitude
           );
-          console.log("place: ", place);
           await fetchWeather(place);
           setLoading(false);
         },
@@ -67,7 +65,6 @@ const Home = () => {
 
   const fetchWeather = async (place) => {
     const data = await getWeatherReport(place);
-    console.log("weather: ", data);
     setWeather(data);
   };
 

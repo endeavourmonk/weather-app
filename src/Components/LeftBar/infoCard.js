@@ -43,7 +43,10 @@ const InfoCard = ({ weather }) => {
 
       <div className={styles.infoBox}>
         <div>{text}</div>
-        <div>{`Precepitation(mm): ${precip_mm}`}</div>
+        <div>
+          <b>Precipitation</b>
+          {` ${precip_mm} mm`}
+        </div>
       </div>
     </div>
   );

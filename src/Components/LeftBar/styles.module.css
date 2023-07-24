@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  /* width: 30%; */
 }
 
 @media (min-width: 768px) {
@@ -70,6 +69,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  position: relative;
 }
 
 .cityCard img {
@@ -79,6 +79,7 @@
 
 .cityName {
   position: absolute;
+  text-align: center;
   font-weight: 600;
   color: white;
   padding: 10px;
