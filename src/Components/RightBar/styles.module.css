@@ -15,6 +15,7 @@
   margin-left: 50px;
 }
 
+/*Today Card */
 .todayData {
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +23,6 @@
   align-items: center;
 }
 
-/*Today Card */
 .todayCard {
   height: 120px;
   width: 90%;
@@ -62,7 +62,7 @@
 
 .forecastCard {
   height: 180px;
-  width: calc((100% - 100px) / 3);
+  width: calc((100% - 60px) / 3);
   margin: 10px;
   background-color: #fff;
   border-radius: 20px;
@@ -70,6 +70,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .forecastCard {
+    width: calc((100% - 80px) / 3);
+  }
 }
 
 .forecastImg {
@@ -80,8 +86,14 @@
 
 .cardTitle {
   color: grey;
-  font-size: 20px;
+  font-size: 18px;
   margin: 8px;
   padding: 6px;
   font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .cardTitle {
+    font-size: 22px;
+  }
 }
