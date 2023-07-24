@@ -29,6 +29,7 @@ const SearchBar = ({ fetchWeather }) => {
   const handleDropdownItemClick = (e) => {
     fetchWeather(e.target.innerText);
     setSearchSuggestions(null);
+    document.querySelector(`.${styles.searchBar}`).value = "";
   };
 
   const handleSearch = async (e) => {
