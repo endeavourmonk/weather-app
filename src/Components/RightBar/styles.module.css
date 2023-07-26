@@ -1,8 +1,8 @@
 .container {
-  background-color: #f4f2f2;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* height: 100vh; */
 }
 
 @media (min-width: 768px) {
@@ -27,7 +27,6 @@
   height: 120px;
   width: 90%;
   margin: 6px;
-  background-color: #fff;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -64,7 +63,6 @@
   height: 180px;
   width: calc((100% - 60px) / 3);
   margin: 10px;
-  background-color: #fff;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -85,7 +83,6 @@
 }
 
 .cardTitle {
-  color: grey;
   font-size: 18px;
   margin: 8px;
   padding: 6px;

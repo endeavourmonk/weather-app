@@ -1,5 +1,6 @@
 import Card from "./Card";
 import styles from "./styles.module.css";
+import themes from "../../Pages/theme.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTemperatureArrowDown,
@@ -23,7 +24,7 @@ const getDayName = (dateEpoch) => {
   return dayName;
 };
 
-const RightBar = ({ weather }) => {
+const RightBar = ({ weather, mode }) => {
   const index = weather.current.air_quality["us-epa-index"];
 
   const {
@@ -46,7 +47,8 @@ const RightBar = ({ weather }) => {
   const forecastlistItems = weather.forecast.forecastday.map((val) => (
     <Card
       key={val.date_epoch}
-      className="forecastCard"
+      className={`forecastCard`}
+      mode={mode}
       title={getDayName(val.date_epoch)}
     >
       <div>
@@ -74,20 +76,24 @@ const RightBar = ({ weather }) => {
   ));
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        mode === "dark" ? themes.bgDark : themes.bgLight
+      }`}
+    >
       <h2 className={styles.heading}>This Week</h2>
       <div className={styles.forecast}>{forecastlistItems}</div>
       <h2 className={styles.heading}>Today's Highlights</h2>
 
       <div className={styles.todayData}>
-        <Card className="todayCard" title="Feels Like">
+        <Card className="todayCard" mode={mode} title="Feels Like">
           <div>
             <FontAwesomeIcon icon={faThermometer} />
             <span className={styles.cardData}>{`${feelslike_c} °C`}</span>
           </div>
         </Card>
 
-        <Card className="todayCard" title="Wind">
+        <Card className="todayCard" mode={mode} title="Wind">
           <div>
             <FontAwesomeIcon icon={faWind} style={{ color: "#FFA500" }} />
             <span className={styles.cardData}>{`${wind_kph} Km/h`}</span>
@@ -103,14 +109,14 @@ const RightBar = ({ weather }) => {
           </div>
         </Card>
 
-        <Card className="todayCard" title="Visibility">
+        <Card className="todayCard" mode={mode} title="Visibility">
           <div>
             <FontAwesomeIcon icon={faEye} fade />
             <span className={styles.cardData}>{`${vis_km} Km`}</span>
           </div>
         </Card>
 
-        <Card className="todayCard" title="Humidity">
+        <Card className="todayCard" mode={mode} title="Humidity">
           <div>
             <FontAwesomeIcon icon={faDroplet} />
             <span className={styles.cardData}>{`${humidity}`}</span>
@@ -118,7 +124,7 @@ const RightBar = ({ weather }) => {
         </Card>
       </div>
       <div className={styles.todayData}>
-        <Card className="todayCard" title="Min & Max">
+        <Card className="todayCard" mode={mode} title="Min & Max">
           <div>
             <FontAwesomeIcon
               icon={faTemperatureArrowUp}
@@ -136,7 +142,7 @@ const RightBar = ({ weather }) => {
           </div>
         </Card>
 
-        <Card className="todayCard" title="Sunrise & Sunset">
+        <Card className="todayCard" mode={mode} title="Sunrise & Sunset">
           <div>
             <FontAwesomeIcon
               icon={faMountainSun}
@@ -150,7 +156,7 @@ const RightBar = ({ weather }) => {
           </div>
         </Card>
 
-        <Card className="todayCard" title="Air Components">
+        <Card className="todayCard" mode={mode} title="Air Components">
           <div className={styles.cardData}>
             <b>PM 2.5: </b>
             {pm2_5.toFixed(2)}
@@ -161,7 +167,7 @@ const RightBar = ({ weather }) => {
           </div>
         </Card>
 
-        <Card className="todayCard" title="Air Quaity">
+        <Card className="todayCard" mode={mode} title="Air Quaity">
           <div
             style={{
               display: "flex",

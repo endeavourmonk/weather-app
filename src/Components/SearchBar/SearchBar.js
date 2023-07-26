@@ -1,9 +1,7 @@
 import styles from "./styles.module.css";
+import themes from "../../Pages/theme.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-  faCrosshairs,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCrosshairs, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 const URL2 = process.env.REACT_APP_URL2;
@@ -18,7 +16,7 @@ const searchSuggestion = async (query) => {
   }
 };
 
-const SearchBar = ({ fetchWeather }) => {
+const SearchBar = ({ fetchWeather, handleThemeChange, mode }) => {
   const [searchSuggestions, setSearchSuggestions] = useState(null);
 
   const handleSearchChange = async (e) => {
@@ -40,7 +38,7 @@ const SearchBar = ({ fetchWeather }) => {
     }
   };
 
-  const handleCrosshairClick = () => {
+  const handleButtonClick = () => {
     const input = document.querySelector(`.${styles.searchBar}`);
     let place = input.value;
     fetchWeather(place);
@@ -51,21 +49,31 @@ const SearchBar = ({ fetchWeather }) => {
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>
-        <FontAwesomeIcon className={styles.icon} icon={faMagnifyingGlass} />
+        <FontAwesomeIcon
+          className={styles.toggleTheme}
+          icon={mode === "dark" ? faMoon : faSun}
+          onClick={handleThemeChange}
+        />
         <input
           onChange={handleSearchChange}
           onKeyUp={handleSearch}
-          className={styles.searchBar}
+          className={`${styles.searchBar} ${
+            mode === "dark" ? themes.fgDark : themes.fgLight
+          }`}
           type="text"
-          placeholder="Search for Places..."
+          placeholder="Search Places..."
         />
         <FontAwesomeIcon
           className={styles.icon}
           icon={faCrosshairs}
-          onClick={handleCrosshairClick}
+          onClick={handleButtonClick}
         />
       </div>
-      <div className={styles.dropdown}>
+      <div
+        className={`${styles.dropdown} ${
+          mode === "dark" ? themes.fgDark : themes.fgLight
+        }`}
+      >
         {searchSuggestions &&
           searchSuggestions.map((item) => (
             <div

@@ -28,6 +28,9 @@ const getWeatherReport = async (place) => {
 const Home = () => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [mode, setMode] = useState(false);
+
+  const handleThemeChange = () => setMode(mode === "dark" ? "light" : "dark");
 
   // displaying the weather report based on the current location
   useEffect(() => {
@@ -72,10 +75,14 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      <LeftBar weather={weather}>
-        <SearchBar fetchWeather={fetchWeather} />
+      <LeftBar weather={weather} mode={mode}>
+        <SearchBar
+          fetchWeather={fetchWeather}
+          handleThemeChange={handleThemeChange}
+          mode={mode}
+        />
       </LeftBar>
-      <RightBar weather={weather} />
+      <RightBar weather={weather} mode={mode} />
     </div>
   );
 };

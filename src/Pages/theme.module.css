@@ -1,0 +1,23 @@
+.bgDark {
+  background-color: #1f2933;
+  color: white;
+  transition: 0.5s ease all;
+}
+
+.fgDark {
+  background-color: #323f4b;
+  color: white;
+  transition: 0.5s ease all;
+}
+
+.bgLight {
+  background-color: #e1e1e1;
+  color: black;
+  transition: 0.5s ease all;
+}
+
+.fgLight {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s ease all;
+}
