@@ -37,11 +37,11 @@
   padding: 2px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .todayCard {
     padding: 4px;
     height: 150px;
-    width: 220px;
+    width: calc((100% - 80px) / 4);
     font-size: 22px;
   }
 }

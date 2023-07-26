@@ -10,14 +10,6 @@ const URL = process.env.REACT_APP_URL;
 const URL2 = process.env.REACT_APP_URL2;
 const KEY = process.env.REACT_APP_KEY;
 
-// fetch 5 day forecast by place name
-// const getForecast = async (place) => {
-//   const data = await fetch(
-//     `${URL}/data/2.5/forecast?q=${place}&appid=${API_KEY}`
-//   );
-//   return await data.json();
-// };
-
 const getPlaceByLatitudeAndLongitude = async (lat, lon) => {
   const data = await fetch(
     `${URL}/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${API_KEY}`
@@ -64,8 +56,14 @@ const Home = () => {
   }, []);
 
   const fetchWeather = async (place) => {
-    const data = await getWeatherReport(place);
-    setWeather(data);
+    if (place) {
+      const data = await getWeatherReport(place);
+      if (data.error) {
+        console.log("place not exist");
+      } else {
+        setWeather(data);
+      }
+    }
   };
 
   if (loading) {

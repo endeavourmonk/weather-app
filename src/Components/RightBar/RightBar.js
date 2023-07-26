@@ -116,7 +116,8 @@ const RightBar = ({ weather }) => {
             <span className={styles.cardData}>{`${humidity}`}</span>
           </div>
         </Card>
-
+      </div>
+      <div className={styles.todayData}>
         <Card className="todayCard" title="Min & Max">
           <div>
             <FontAwesomeIcon
@@ -161,19 +162,26 @@ const RightBar = ({ weather }) => {
         </Card>
 
         <Card className="todayCard" title="Air Quaity">
-          <div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "0 8px",
+            }}
+          >
             <FontAwesomeIcon icon={faLungs} />
-            <span
+            <div
               style={{
                 color: AQI[index].color,
-                fontSize: "26px",
+                fontSize: "20px",
                 fontWeight: "900",
                 textAlign: "center",
               }}
               className={styles.cardData}
             >
               {AQI[index].label}
-            </span>
+            </div>
           </div>
         </Card>
       </div>
