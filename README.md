@@ -1,6 +1,7 @@
 # SkyTracker
 
 Skytracker: [Live Link](https://skytrackerjs.vercel.app/).
+![alt text](https://github.com/endeavourmonk/weather-app/blob/master/public/favicon.ico)
 
 ## Available Scripts
 
