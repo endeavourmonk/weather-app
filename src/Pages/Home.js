@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import LeftBar from "../Components/LeftBar/LeftBar";
 import RightBar from "../Components/RightBar/RightBar";
 import SearchBar from "../Components/SearchBar/SearchBar";
+import Loading from "./Loading";
 import { useState, useEffect } from "react";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -70,7 +71,7 @@ const Home = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
