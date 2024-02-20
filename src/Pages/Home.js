@@ -61,10 +61,13 @@ const Home = () => {
 
   const fetchWeather = async (place) => {
     if (place) {
+      setLoading(true);
       const data = await getWeatherReport(place);
       if (data.error) {
         console.log("place not exist");
+        setLoading(false);
       } else {
+        setLoading(false);
         setWeather(data);
       }
     }
