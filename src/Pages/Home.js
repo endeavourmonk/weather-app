@@ -65,6 +65,8 @@ const Home = () => {
       const data = await getWeatherReport(place);
       if (data.error) {
         console.log("place not exist");
+        const data_ = await getWeatherReport("London");
+        setWeather(data_);
         setLoading(false);
       } else {
         setLoading(false);
