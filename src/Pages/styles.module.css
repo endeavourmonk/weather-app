@@ -29,10 +29,25 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+.loadingImg {
+  width: 40%;
 }
 
 @media (max-width: 768px) {
   .loadingImg {
-    width: 100%;
+    width: 70%; /* Adjust this value for smaller screens if needed */
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
 }

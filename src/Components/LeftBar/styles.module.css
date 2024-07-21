@@ -57,6 +57,7 @@
 
 /* City Card  */
 .cityCard {
+  background: linear-gradient(to right, #f9655b, #ee821a);
   height: 120px;
   width: 80%;
   margin: 12px;
@@ -69,10 +70,10 @@
   position: relative;
 }
 
-.cityCard img {
+/* .cityCard img {
   filter: blur(1px);
   opacity: 0.8;
-}
+} */
 
 .cityName {
   position: absolute;

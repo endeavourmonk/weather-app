@@ -6,7 +6,7 @@ const Loading = () => {
       <div className={styles.loading}>
         <img
           className={styles.loadingImg}
-          src={process.env.PUBLIC_URL + "/loading.gif"}
+          src="https://res.cloudinary.com/cloudimagestore-/image/upload/v1721560112/Assets/iu90c6ilsbpbhokymvmj.gif"
           alt="...loading"
         />
       </div>
