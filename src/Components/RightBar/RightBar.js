@@ -27,20 +27,9 @@ const getDayName = (dateEpoch) => {
 const RightBar = ({ weather, mode }) => {
   const index = weather.current.air_quality["us-epa-index"];
 
-  const {
-    wind_kph,
-    wind_dir,
-    pressure_in,
-    humidity,
-    cloud,
-    feelslike_c,
-    vis_km,
-    uv,
-    gust_kph,
-  } = weather.current;
-  const { co, pm2_5, pm10 } = weather.current.air_quality;
-  const { sunrise, sunset, moonrise, moonset, moon_phase } =
-    weather.forecast.forecastday[0].astro;
+  const { wind_kph, wind_dir, humidity, feelslike_c, vis_km } = weather.current;
+  const { pm2_5, pm10 } = weather.current.air_quality;
+  const { sunrise, sunset } = weather.forecast.forecastday[0].astro;
   const { maxtemp_c, mintemp_c } = weather.forecast.forecastday[0].day;
 
   // constructing list of weather forecast
@@ -159,11 +148,11 @@ const RightBar = ({ weather, mode }) => {
         <Card className="todayCard" mode={mode} title="Air Components">
           <div className={styles.cardData}>
             <b>PM 2.5: </b>
-            {pm2_5.toFixed(2)}
+            {pm2_5?.toFixed(2)}
           </div>
           <div className={styles.cardData}>
             <b>PM 10: </b>
-            {pm10.toFixed(2)}
+            {pm10?.toFixed(2)}
           </div>
         </Card>
 
@@ -179,14 +168,14 @@ const RightBar = ({ weather, mode }) => {
             <FontAwesomeIcon icon={faLungs} />
             <div
               style={{
-                color: AQI[index].color,
+                color: AQI[index]?.color,
                 fontSize: "20px",
                 fontWeight: "900",
                 textAlign: "center",
               }}
               className={styles.cardData}
             >
-              {AQI[index].label}
+              {AQI?.[index]?.label}
             </div>
           </div>
         </Card>
